@@ -9,6 +9,9 @@ Text Domain: blockbartheme
 * {
   box-sizing: border-box;
 }
+*:focus {
+  outline: none;
+}
 
 body, input, select, textarea {
   color: rgba(0,0,0,0.75);
@@ -31,6 +34,9 @@ h1 {
   margin: 0.25em auto;
   letter-spacing: -0.025em;
   max-width: 980px;
+  text-align: left;
+}
+.single-post h1 {
   text-align: center;
 }
 @media(min-width: 480px) {
@@ -40,6 +46,12 @@ h1 {
 }
 h2, h3 {
   margin: 2em auto 0.25em auto;
+  text-align: left;
+  width: 600px;
+  max-width: 100%;
+}
+.single-post h2,
+.single-post h3 {
   text-align: center;
 }
 
@@ -118,15 +130,18 @@ a:hover {
 }
 
 .posts-overview {
-  width: 960px;
   margin: 0 auto;
   max-width: 100%;
-  font-size: 2em;
+  font-size: 1em;
+  width: 600px;
+  max-width: 100%;
 }
 .posts-overview .post {
-  padding-bottom: 15px;
-  margin-bottom: 15px;
-  border-bottom: solid #ccc  1px;
+  font-size: 18px;
+  line-height: 31.5px;
+}
+.fts-twitter-no-margin-left {
+  margin-left:5px;
 }
 .posts-overview .post:last-child {
   border-bottom: none;
@@ -239,4 +254,53 @@ a:hover {
   display: inline-block;
   padding: 0 2px;
   text-transform: lowercase;
+}
+.blogpost-biw-program li:hover a,
+.blogpost-biw-program li:hover em {
+  color: #000;
+}
+
+#twitter-feed-blockbar070 {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+.fts-twitter-image {
+  display: none;
+}
+.tweeter-info .fts-right {
+  padding: 0 7px 0 7px !important;
+}
+.fts-twitter-text {
+  font-size: 18px;
+  line-height: 31.5px;
+}
+.fts-twitter-div a,
+#twitter-feed-blockbar070 .fts-twitter-full-name {
+  color: #f00;
+}
+.fts-tweeter-wrap {
+  margin-bottom:15px;
+}
+.fts-tweeter-wrap .tweeter-info {
+  padding-bottom: 15px;
+}
+.fts-tweeter-wrap .tweeter-info img {
+  width: auto;
+  max-width: 100%;
+  max-height: 400px;
+}
+/* Links in tweet */
+.fts-twitter-div a {
+}
+.fts-twitter-text a {
+  color: #000;
+}
+.fts-powered-by-text {
+  font-size: 10px;
+  color: #ccc !important;
+  margin-bottom: 8px;
+}
+.ft-gallery-share-wrap {
+  box-shadow: none;
 }

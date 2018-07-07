@@ -102,3 +102,24 @@ function your_prefix_get_meta_box( $meta_boxes ) {
   return $meta_boxes;
 }
 add_filter( 'rwmb_meta_boxes', 'your_prefix_get_meta_box' );
+
+
+# Add a shortcode to every post or page
+# https://wp-buddy.com/blog/add-a-shortcode-to-every-post-or-page/
+function my_shortcode_to_a_post( $content ) {
+  global $post;
+  if( ! $post instanceof WP_Post ) return $content;
+
+  switch( $post->post_type ) {
+    case 'post':
+      return $content;
+      // return $content . '[fts_twitter twitter_name=blockbar070 tweets_count=3 cover_photo=no stats_bar=no show_retweets=yes show_replies=no]';
+    case 'page':
+      return $content;
+      // return $content . '[fts_twitter twitter_name=blockbar070 tweets_count=3 cover_photo=no stats_bar=no show_retweets=yes show_replies=no]';
+    default:
+      return $content;
+  }
+}
+
+add_filter( 'the_content', 'my_shortcode_to_a_post' );
