@@ -11,7 +11,7 @@
 
     <?php wp_head();?>
 
-    <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory');?>/style.css?2" />
+    <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory');?>/style.css?3" />
 
     <link href="/img/favicon/favicon.png" rel="shortcut icon" type="image/x-icon" />
 
