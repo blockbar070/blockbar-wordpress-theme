@@ -32,7 +32,11 @@ get_header();
   $args = array( 'posts_per_page' => 5, 'offset'=> 0, 'category' => 53 );
 
   $myposts = get_posts( $args );
-  foreach ( $myposts as $post ) : setup_postdata( $post ); ?>
+  foreach ( $myposts as $post ) : setup_postdata( $post );
+    $postUrl = str_replace('http://', 'https://', $_SERVER['SCRIPT_URI']);
+    // Visitor shouldn't see current post in the related posts section
+    if( $isIndex || (! $isIndex && get_permalink() != $postUrl ) ) {
+    ?>
     <div class="Index-community-post">
       <div style="height: 280px; position: relative;">
         <a href="<?php the_permalink(); ?>" style="position: absolute; bottom: 0;">
@@ -52,7 +56,7 @@ get_header();
         <?php the_excerpt(); ?>
       </div>
     </div>
-  <?php endforeach; 
+  <?php } endforeach; 
   wp_reset_postdata();
   ?>
 </div>
