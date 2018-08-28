@@ -34,14 +34,20 @@ get_header();
   $myposts = get_posts( $args );
   foreach ( $myposts as $post ) : setup_postdata( $post ); ?>
     <div class="Index-community-post">
-      <a class="Index-title" href="<?php the_permalink(); ?>">
-        <?php the_title(); ?>
-      </100%>
       <div style="height: 280px; position: relative;">
         <a href="<?php the_permalink(); ?>" style="position: absolute; bottom: 0;">
           <?php the_post_thumbnail( array( 280, 280 ), ['class' => 'img-responsive responsive--full'] ); ?>
         </a>
       </div>
+      <?php if(get_post_meta(get_the_ID(), 'session-url', true)): ?>
+        <a href="<?php echo get_post_meta(get_the_ID(), 'session-url', true) ?>" target="_blank" style="color: #000; font-weight: bold; margin-top: 10px; display: block;">
+          Community post by
+          <?php echo get_post_meta(get_the_ID(), 'session-author', true) ?>
+        </a>
+      <?php endif; ?>
+      <a class="Index-title" href="<?php the_permalink(); ?>">
+        <?php the_title(); ?>
+      </a>
       <div>
         <?php the_excerpt(); ?>
       </div>
@@ -54,7 +60,7 @@ get_header();
 <h2>Latest news</h2>
 
 <?php
-echo do_shortcode('[fts_twitter twitter_name=blockbar070 tweets_count=20 cover_photo=no stats_bar=yes show_retweets=no show_replies=no search=%23blockbar%20OR%20%23biw070%20OR%20%40blockbar070%20OR%20%40the_hague_tech]');
+echo do_shortcode('[fts_twitter twitter_name=blockbar070 tweets_count=30 cover_photo=no stats_bar=yes show_retweets=no show_replies=no search=%23blockbar%20OR%20%23biw070%20OR%20%40blockbar070%20OR%20%40the_hague_tech]');
 ?>
 
 <style type="text/css">
