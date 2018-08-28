@@ -82,6 +82,11 @@ function your_prefix_get_meta_box( $meta_boxes ) {
         'name' => esc_html__( 'Author', 'metabox-online-generator' ),
       ),
       array(
+        'id' => $prefix . 'url',
+        'type' => 'text',
+        'name' => esc_html__( 'URL', 'metabox-online-generator' ),
+      ),
+      array(
         'id' => $prefix . 'area',
         'type' => 'text',
         'name' => esc_html__( 'Area', 'metabox-online-generator' ),
